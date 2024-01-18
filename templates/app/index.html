@@ -1,1 +1,11 @@
 {% extends "base.html" %}
+
+{% block content %}
+    <h1>
+      TODO List
+    <a href="{% url 'app:task-create' %}" class="btn btn-primary link-to-page">
+      Add task
+    </a>
+    </h1>
+{% endblock %}
+```
