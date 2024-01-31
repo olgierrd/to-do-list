@@ -5,7 +5,7 @@ from app.models import Task, Tag
 
 class TaskForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
-        queryset=Task.objects.all(),
+        queryset=Tag.objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
 
