@@ -7,9 +7,10 @@ from app.forms import TaskForm
 from app.models import Task, Tag
 
 
-class IndexView(generic.TemplateView):
+class IndexView(generic.ListView):
     model = Task
     template_name = "app/index.html"
+    context = {"tasks": Task.objects.all()}
 
 
 class TagListView(generic.ListView):
