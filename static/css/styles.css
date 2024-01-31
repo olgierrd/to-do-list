@@ -24,3 +24,13 @@ h1 {
 .task-content {
     font-size: 20px;
 }
+
+.task-status {
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.complete {
+    float: right;
+    margin-right: 30px;
+}

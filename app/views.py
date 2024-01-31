@@ -1,5 +1,5 @@
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -24,8 +24,13 @@ class TaskCreateView(generic.CreateView):
     success_url = reverse_lazy("app:index")
 
 
-class TaksUpdateView(generic.UpdateView):
+class TaskUpdateView(generic.UpdateView):
     model = Task
     fields = "__all__"
-    success_url = reverse_lazy("kitchen:ingredient-list")
+    success_url = reverse_lazy("app:index")
 
+
+class TaskStatusUpdateView(generic.UpdateView):
+    model = Task
+    fields = ["done"]
+    success_url = reverse_lazy("app:index")

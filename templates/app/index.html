@@ -8,7 +8,26 @@
     </a>
     </h1>
   {% for task in task_list %}
-    <p class="task-content">{{ task.content }}</p>
+    <p class="task-content">
+      {{ task.content }}
+      {% if task.done %}
+        <span style="color:green;" class="task-status">
+          Done
+        </span>
+        <a href="{% url 'app:task-complete-undo' task.id %}" class="btn btn-warning link-to-page complete">
+          Undo
+        </a>
+        
+      {% else %}
+        <span style="color:red;" class="task-status">
+          Not Done
+        </span>
+        <a href="{% url 'app:task-complete-undo' task.id %}" class="btn btn-success link-to-page complete">
+          Complete
+        </a>
+      {% endif %}
+    </p>
+    <br>
   {% endfor %}
 {% endblock %}
 ```
