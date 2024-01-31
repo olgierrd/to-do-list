@@ -38,3 +38,8 @@ h1 {
 .divider {
     border-bottom: 1px solid #ccc;
 }
+
+.tag-table {
+    font-size: 15px;
+    text-align: center;
+}

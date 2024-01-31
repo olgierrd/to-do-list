@@ -1,9 +1,7 @@
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
 
-from app.forms import TaskForm
+from app.forms import TaskForm, TagForm
 from app.models import Task, Tag
 
 
@@ -15,6 +13,25 @@ class IndexView(generic.ListView):
 
 class TagListView(generic.ListView):
     model = Tag
+    template_name = "app/tag_list.html"
+
+
+class TagCreateView(generic.CreateView):
+    model = Tag
+    form_class = TagForm
+    template_name = "app/tag_form.html"
+    success_url = reverse_lazy("app:tag-list")
+
+
+class TagUpdateView(generic.UpdateView):
+    model = Tag
+    fields = "__all__"
+    success_url = reverse_lazy("app:tag-list")
+
+
+class TagDeleteView(generic.DeleteView):
+    model = Tag
+    success_url = reverse_lazy("app:tag-list")
 
 
 class TaskCreateView(generic.CreateView):
@@ -33,6 +50,7 @@ class TaskUpdateView(generic.UpdateView):
 class TaskDeleteView(generic.DeleteView):
     model = Task
     success_url = reverse_lazy("app:index")
+
 
 class TaskStatusUpdateView(generic.UpdateView):
     model = Task
