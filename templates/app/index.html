@@ -8,7 +8,7 @@
     </a>
     </h1>
   {% for task in task_list %}
-    <p class="task-content">
+    <h2 class="task-content">
       {{ task.content }}
       {% if task.done %}
         <span style="color:green;" class="task-status">
@@ -17,7 +17,7 @@
         <a href="{% url 'app:task-complete-undo' task.id %}" class="btn btn-warning link-to-page complete">
           Undo
         </a>
-        
+
       {% else %}
         <span style="color:red;" class="task-status">
           Not Done
@@ -26,7 +26,19 @@
           Complete
         </a>
       {% endif %}
+    </h2>
+    <p style="font-size: 15px">
+      Created at: {{ task.created_at }}
     </p>
+    <h3>
+      Tags:
+      {% for tag in task.tags.all %}
+        <a href="" class="btn btn-info link-to-page">
+          {{ tag.name }}
+        </a>
+      {% endfor %}
+    </h3>
+    <hr class="solid divider">
     <br>
   {% endfor %}
 {% endblock %}
