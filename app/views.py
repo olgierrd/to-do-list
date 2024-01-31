@@ -30,6 +30,10 @@ class TaskUpdateView(generic.UpdateView):
     success_url = reverse_lazy("app:index")
 
 
+class TaskDeleteView(generic.DeleteView):
+    model = Task
+    success_url = reverse_lazy("app:index")
+
 class TaskStatusUpdateView(generic.UpdateView):
     model = Task
     fields = ["done"]

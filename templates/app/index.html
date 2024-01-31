@@ -33,11 +33,17 @@
     <h3>
       Tags:
       {% for tag in task.tags.all %}
-        <a href="" class="btn btn-info link-to-page">
+        <a href="" class="btn btn-default link-to-page">
           {{ tag.name }}
         </a>
       {% endfor %}
     </h3>
+    <a href="{% url 'app:task-update' task.id %}" class="btn btn-success link-to-page">
+      Update task details
+    </a>
+    <a href="{% url 'app:task-delete' task.id %}" class="btn btn-danger link-to-page">
+      Delete task
+    </a>
     <hr class="solid divider">
     <br>
   {% endfor %}
