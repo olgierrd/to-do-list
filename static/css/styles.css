@@ -1,0 +1,45 @@
+
+body {
+    font-family: Roboto, sans-serif;
+    line-height: 1.6em;
+    margin-top: 20px;
+    padding: 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h1 {
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 10px;
+    display: flex; /* Added */
+    justify-content: space-between; /* Added */
+    align-items: center; /* Added */
+}
+
+.task-content {
+    font-size: 25px;
+}
+
+.task-status {
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.complete {
+    float: right;
+    margin-right: 30px;
+}
+
+.divider {
+    border-bottom: 1px solid #ccc;
+}
+
+.tag-table {
+    font-size: 15px;
+    text-align: center;
+}
